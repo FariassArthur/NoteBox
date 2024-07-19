@@ -14,11 +14,11 @@ const Links = () => {
         <li className={location.pathname === '/' ? "bold" : ""}>
           <Link className='link' to="/">Overview</Link>
         </li>
-        <li>
+        <li className={location.pathname === '/calendar' ? "bold" : ""}>
           <Link className='link' to="/calendar">Calendar</Link>
         </li>
-        <li>
-          <Link className='link' to="/todo">ToDo</Link>
+        <li className={location.pathname === '/ToDo' ? "bold" : ""}>
+          <Link className='link' to="/ToDo">ToDo</Link>
         </li>
       </ul>
     </div>
