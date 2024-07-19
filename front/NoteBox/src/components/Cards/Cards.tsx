@@ -1,7 +1,7 @@
 import '../styles/Cards.sass'
 
 //components
-import Card from './Card'
+import Card from '../Card/Card'
 
 const Cards = () => {
   return (
