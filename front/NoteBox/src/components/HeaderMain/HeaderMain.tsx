@@ -1,10 +1,10 @@
 //css
-import './HeaderMain.sass'
+import styles from './HeaderMain.module.scss'
 
 const HeaderMain = () => {
   return (
-    <div id="header-main">
-        <div className='h-first'>
+    <div id={styles.headerMain}>
+        <div className={styles.hFirst}>
             <h1>Object Name</h1>
 
             <h3>Subtype</h3>

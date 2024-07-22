@@ -2,4 +2,14 @@
     border: 1px solid;
     padding: 1rem;
     width: 50%;
+
+    transition: all .5s ease-in-out;
+
+    section {
+        i {
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
 }

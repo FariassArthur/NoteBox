@@ -1,8 +1,8 @@
-import "./Card.sass";
+import styles from "./Card.module.scss";
 
 const Card = () => {
   return (
-    <div id="card">
+    <div id={styles.card}>
       <h2>Overview</h2>
 
       <p>
