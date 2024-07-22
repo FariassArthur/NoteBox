@@ -1,5 +1,5 @@
 //css
-import "./ToDo.sass";
+import styles from "./ToDo.module.scss";
 
 //import { Link } from "react-router-dom";
 
@@ -8,7 +8,7 @@ import ToDoModal from "../ToDoModal/ToDoModal";
 
 const ToDo = () => {
   return (
-    <section id="ToDo">
+    <section id={styles.ToDo}>
       <ToDoModal />
     </section>
   );

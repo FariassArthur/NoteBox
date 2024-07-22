@@ -1,5 +1,5 @@
 //css
-import './Header.sass'
+import styles from  './Header.module.scss'
 
 //icons
 import { FaUser } from "react-icons/fa";
@@ -7,10 +7,10 @@ import { FaUser } from "react-icons/fa";
 const Header = () => {
   return (
     <>
-      <div id="header">
+      <div id={styles.header}>
         <h3>Documentation</h3>
 
-        <section className='auth'>
+        <section className={styles.auth}>
           <FaUser />
         </section>
       </div>
