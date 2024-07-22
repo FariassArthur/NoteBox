@@ -1,4 +1,4 @@
-import '../styles/Cards.sass'
+import './Cards.sass'
 
 //components
 import Card from '../Card/Card'

@@ -1,5 +1,5 @@
 //css
-import '../styles/HeaderMain.sass'
+import './HeaderMain.sass'
 
 const HeaderMain = () => {
   return (

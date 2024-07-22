@@ -1,5 +1,5 @@
 //css
-import "../styles/Home.sass";
+import "./Home.sass";
 
 //components
 import Header from "../../components/Header/Header";

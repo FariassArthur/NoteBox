@@ -1,5 +1,5 @@
 //css
-import '../styles/Header.sass'
+import './Header.sass'
 
 //icons
 import { FaUser } from "react-icons/fa";

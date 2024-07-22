@@ -1,5 +1,5 @@
 //css
-import '../styles/Links.sass'
+import './Links.sass'
 
 //router
 import { useLocation, Link } from 'react-router-dom'
