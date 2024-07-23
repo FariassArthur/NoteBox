@@ -7,6 +7,7 @@ import { useState } from "react";
 import { BsCheck } from "react-icons/bs";
 import { BsCheckAll } from "react-icons/bs";
 import { BsXCircle } from "react-icons/bs";
+import { BsPencilSquare } from "react-icons/bs";
 
 type Props = {};
 
@@ -25,6 +26,9 @@ const ToDoModal = (props: Props) => {
       <section>
         <i onClick={handleChecked} className={styles.check}>
           {checked ? <BsCheck /> : <BsCheckAll />}
+        </i>
+        <i className={styles.edit}>
+          <BsPencilSquare />
         </i>
         <i className={styles.delete}>
           <BsXCircle />

@@ -1,5 +1,5 @@
 //css
-import "./Home.sass";
+import styles from "./Home.module.scss";
 
 //components
 import Header from "../../components/Header/Header";
@@ -14,14 +14,14 @@ import { Routes, Route } from "react-router-dom";
 
 const Home = () => {
   return (
-    <div id="home">
+    <div id={styles.home}>
       <Header />
       <HeaderMain />
 
-      <section className="data">
-       <Links />
+      <section className={styles.data}>
+        <Links />
         <div></div>
-       <Routes>
+        <Routes>
           <Route path="cards" element={<Cards />} />
           <Route path="todo" element={<ToDo />} />
         </Routes>

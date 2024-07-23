@@ -1,14 +1,45 @@
 #ToDoModal {
     border: 1px solid;
+    border-radius: 15px;
     padding: 1rem;
-    width: 50%;
+    width: 30vw;
 
     transition: all .5s ease-in-out;
 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
     section {
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+
+
         i {
+            transition: all .3s ease-in-out;
             &:hover {
                 cursor: pointer;
+                color: #bbb;
+            }
+
+            &.edit:hover {
+                color: blue;
+            }
+
+            &.check:hover {
+                color: green;
+            }
+
+            &.delete:hover {
+                color: red;
+            }
+
+            &.edit:active, &.check:active, &.delete:active {
+                transition: .3s ease-in-out;
+                margin-right: 3rem;
             }
         }
     }
