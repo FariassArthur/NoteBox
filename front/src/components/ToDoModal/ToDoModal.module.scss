@@ -1,5 +1,6 @@
+@import "../../index.scss";
+
 #ToDoModal {
-    border: 1px solid;
     border-radius: 15px;
     padding: 1rem;
     width: 30vw;
@@ -9,6 +10,12 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    box-shadow: 0 10px 20px $black;
+    
+    &:hover {
+        box-shadow: 10px 0 20px $black;
+    }
 
     section {
 

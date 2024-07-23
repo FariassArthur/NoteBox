@@ -12,7 +12,7 @@ import { BsPencilSquare } from "react-icons/bs";
 type Props = {};
 
 const ToDoModal = (props: Props) => {
-  const [checked, setChecked] = useState<boolean>();
+  const [checked, setChecked] = useState<boolean>(false);
 
   const handleChecked = () => {
     if (checked === true) {
@@ -25,7 +25,7 @@ const ToDoModal = (props: Props) => {
       <p>Texto teste</p>
       <section>
         <i onClick={handleChecked} className={styles.check}>
-          {checked ? <BsCheck /> : <BsCheckAll />}
+          {checked ? <BsCheckAll /> : <BsCheck />}
         </i>
         <i className={styles.edit}>
           <BsPencilSquare />
