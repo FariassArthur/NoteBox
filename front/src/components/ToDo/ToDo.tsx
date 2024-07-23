@@ -10,6 +10,9 @@ const ToDo = () => {
   return (
     <section id={styles.ToDo}>
       <ToDoModal />
+      <ToDoModal />
+      <ToDoModal />
+      <ToDoModal />
     </section>
   );
 };
