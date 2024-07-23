@@ -1,0 +1,24 @@
+@import '../../index.scss';
+
+#headerMain {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    padding: 1.5rem;
+    background-color: $black;
+    color: $c-gray;
+
+    margin-top: 1px; 
+    height: 10rem;
+}
+
+
+#headerMain .hFirst {
+    margin-left: 1rem;
+    margin-right: 5rem;
+}
+
+
+.hFirst h3 {
+    opacity: 80%;
+}
