@@ -12,6 +12,9 @@ import ToDo from "../../components/ToDo/ToDo";
 //import { Link } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
 
+//icons
+import { CiSquarePlus } from "react-icons/ci";
+
 const Home = () => {
   return (
     <div id={styles.home}>
@@ -20,7 +23,9 @@ const Home = () => {
 
       <section className={styles.data}>
         <Links />
-        <div></div>
+        <div className={styles.plus}>
+          <CiSquarePlus size={45} />
+        </div>
         <Routes>
           <Route path="cards" element={<Cards />} />
           <Route path="todo" element={<ToDo />} />
