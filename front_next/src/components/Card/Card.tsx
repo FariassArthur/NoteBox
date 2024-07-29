@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 
 export const CardContainner = styled.main`
   padding: 1.5rem;
-  box-shadow: 0 0 25px $c-gold;
+  box-shadow: 0 0 25px var(--c-gold);
   border-radius: 6px;
   margin-bottom: 0.5rem;
 `;
