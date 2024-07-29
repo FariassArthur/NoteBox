@@ -58,17 +58,17 @@ const Links = () => {
     <LinksContainner>
       <ul className="linksList">
         <li className={location === "/home/cards" ? "bold" : ""}>
-          <Link className="link" href="/cards">
+          <Link className="link" href="/home/cards">
             Overview
           </Link>
         </li>
         <li className={location === "/home/calendar" ? "bold" : ""}>
-          <Link className="link" href="/calendar">
+          <Link className="link" href="/home/calendar">
             Calendar
           </Link>
         </li>
         <li className={location === "/home/todo" ? "bold" : ""}>
-          <Link className="link" href="/ToDo">
+          <Link className="link" href="/home/todo">
             ToDo
           </Link>
         </li>

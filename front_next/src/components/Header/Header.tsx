@@ -1,3 +1,4 @@
+"use client"
 
 // Importação de styled-components
 import styled from "styled-components";
