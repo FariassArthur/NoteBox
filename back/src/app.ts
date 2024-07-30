@@ -3,7 +3,7 @@ require("dotenv").config();
 
 import express from "express";
 import cors from "cors";
-//import pool from "./db/conn"
+import {conn, sequelize} from "./db/conn"
 
 const app = express();
 const port = process.env.PORT;
@@ -21,9 +21,12 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 //routes
+import userRoutes from "./routes/UserRoutes"
 
 //system routes
+app.use("/users", userRoutes)
 
 app.listen(port, () => {
+  conn()
   console.log(`App rodando na porta: ${port}`);
 });
