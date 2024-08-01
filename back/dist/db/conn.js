@@ -14,10 +14,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.conn = void 0;
 const mongoose_1 = __importDefault(require("mongoose"));
-const mongoURI = process.env.DB_URI;
+const DB_PASS = process.env.DB_PASS;
+const DB_USER = process.env.DB_USER;
 const conn = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        yield mongoose_1.default.connect(mongoURI);
+        yield mongoose_1.default.connect(`mongodb+srv://${DB_USER}:${DB_PASS}@cluster0.618snce.mongodb.net/notebox?retryWrites=true&w=majority&appName=Cluster0`);
         console.log("Conexão com o banco estabelecida");
     }
     catch (error) {
