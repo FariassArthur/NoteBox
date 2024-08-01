@@ -1,23 +1,17 @@
-import { Pool } from "pg";
-import { Sequelize } from "sequelize";
+import mongoose from "mongoose";
 
-const sequelize = new Sequelize(
-  process.env.DB_NAME as string,
-  process.env.DB_USER as string,
-  process.env.DB_PASSWORD,
-  {
-    host: process.env.DB_HOST,
-    dialect: process.env.DB_DIALECT as any,
-  }
-);
+const DB_PASS = process.env.DB_PASS
+const DB_USER = process.env.DB_USER
+
 
 const conn = async () => {
   try {
-    await sequelize.authenticate();
-    console.log("Conexão estabelecida com sucesso");
+    await mongoose.connect(`mongodb+srv://${DB_USER}:${DB_PASS}@cluster0.618snce.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`);
+    console.log("Conexão com o banco estabelecida")
   } catch (error) {
-    console.error("Conexão com servidor falhour", error);
+    console.error("Erro na conexão com o banco de dados", error)
   }
-};
+}
 
-export {sequelize, conn};
+
+export {conn};
