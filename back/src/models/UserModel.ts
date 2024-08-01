@@ -1,8 +1,7 @@
-import { DataTypes, Model, Optional } from "sequelize";
-import { sequelize } from "../db/conn";
+import mongoose, { Document, Schema } from 'mongoose';
 
-interface UserAttributes {
-  id?: number;
+// Definir a interface para o documento
+interface UserAttributes extends Document {
   name: string;
   email: string;
   password: string;
@@ -10,45 +9,32 @@ interface UserAttributes {
   updatedAt?: Date;
 }
 
-interface UserCreationAttributes extends Optional<UserAttributes, "id"> {}
-
-class User
-  extends Model<UserAttributes, UserCreationAttributes>
-  implements UserAttributes
-{
-  public id?: number;
-  public name!: string;
-  public email!: string;
-  public password!: string;
-
-  public readonly createdAt!: Date;
-  public readonly updatedAt!: Date;
-}
-
-User.init(
-  {
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
-      validate: {
-        isEmail: true,
+// Definir o schema
+const UserSchema: Schema = new Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+    validate: {
+      validator: function (v: string) {
+        return /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(v); // Validação simples de e-mail
       },
-    },
-    password: {
-      type: DataTypes.STRING,
-      allowNull: false,
+      message: (props: { value: string }) => `${props.value} não é um e-mail válido!`,
     },
   },
-  {
-    sequelize,
-    tableName: "users",
-    timestamps: true,
-  }
-);
+  password: {
+    type: String,
+    required: true,
+  },
+}, {
+  timestamps: true, // Adiciona createdAt e updatedAt
+});
+
+// Criar o modelo com o schema
+const User= mongoose.model<UserAttributes>('User', UserSchema);
 
 export default User;

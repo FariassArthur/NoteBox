@@ -3,7 +3,7 @@ require("dotenv").config();
 
 import express from "express";
 import cors from "cors";
-import {conn, sequelize} from "./db/conn"
+import {conn} from "./db/conn"
 
 const app = express();
 const port = process.env.PORT;
