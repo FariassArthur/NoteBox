@@ -21,8 +21,10 @@ const corsOptions = {
 app.use((0, cors_1.default)(corsOptions));
 //routes
 const UserRoutes_1 = __importDefault(require("./routes/UserRoutes"));
+const NoteRoutes_1 = __importDefault(require("./routes/NoteRoutes"));
 //system routes
 app.use("/users", UserRoutes_1.default);
+app.use("/notes", NoteRoutes_1.default);
 app.listen(port, () => {
     (0, conn_1.conn)();
     console.log(`App rodando na porta: ${port}`);
