@@ -24,5 +24,34 @@ export const createNoteSheet = async (req: Request, res: Response) => {
 };
 
 export const createNote = async (req: Request, res: Response) => {
+  const { text, noteSheetId, isDone } = req.body;
+
+  try {
+    if (!mongoose.Types.ObjectId.isValid(noteSheetId)) {
+      return res.status(400).json({ message: "Invalid notesheet ID" });
+    }
+
+    const note = new Note({
+      text,
+      noteSheetId,
+      isDone,
+    });
+
+    const noteSheet = await NoteSheet.findById(noteSheetId);
+
+    if (!noteSheet) {
+      return res.status(404).json({ message: "Notesheet not found" });
+    }
+
+    noteSheet.notes.push(note._id as mongoose.Types.ObjectId);
+    await noteSheet.save();
+
+    res.json(201).json(note);
+  } catch (error) {
+    res.status(500).json({ message: "Error creating note", error });
+  }
+};
+
+export const updateNote = async (req: Request, res: Response) => {
     
 }
