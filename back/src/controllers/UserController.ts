@@ -75,7 +75,7 @@ export const takeUser = async (req: Request, res: Response) => {
 
 export const takeAllUsers = async (req: Request, res: Response) => {
   try {
-    const users = await User.find();
+    const users = await User.find({}).exec()
 
     return res.status(200).json(users);
   } catch (error) {
