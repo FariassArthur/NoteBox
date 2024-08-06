@@ -3,7 +3,7 @@ require("dotenv").config();
 
 import express from "express";
 import cors from "cors";
-import {conn} from "./db/conn"
+import { conn } from "./db/conn";
 
 const app = express();
 const port = process.env.PORT;
@@ -21,12 +21,14 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 //routes
-import userRoutes from "./routes/UserRoutes"
+import userRoutes from "./routes/UserRoutes";
+import noteRoutes from "./routes/NoteRoutes";
 
 //system routes
-app.use("/users", userRoutes)
+app.use("/users", userRoutes);
+app.use("/notes", noteRoutes);
 
 app.listen(port, () => {
-  conn()
+  conn();
   console.log(`App rodando na porta: ${port}`);
 });
