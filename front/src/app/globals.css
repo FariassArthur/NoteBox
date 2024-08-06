@@ -2,14 +2,7 @@
   --max-width: 1100px;
   --border-radius: 12px;
  
-  --black: #07050E;
-  --black-hover: #05040A;
-  --c-blue: #140F28;
-  --blue-hover: #110D22;
-  --c-gray: #FDFCEF;
-  --gray-hover: #FCFBE7;
-  --c-gold: #B0AB49;
-  --gold-hover: #8C893A;
+  --aside: rgba(0, 0, 0, 0.2);
 }
 
 
