@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import bcrypt from "bcrypt";
 import mongoose from "mongoose";
 import User from "../models/UserModel";
 
@@ -6,7 +7,11 @@ export const createUser = async (req: Request, res: Response) => {
   const { name, email, password } = req.body;
 
   try {
-    const user = await User.create({ name, email, password });
+    const salt = process.env.BCRYPT_SALT || ""
+    const passwordHashed = await bcrypt.hash(password, parseInt(salt))
+    
+    
+    const user = await User.create({ name, email, password: passwordHashed });
     res.status(201).json(user);
   } catch (error) {
     res.status(500).json({ message: "Error creating user", error });

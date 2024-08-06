@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { authenticateJWT } from "../middlewares/AuthJWT";
 import {
   createNote,
   createNoteSheet,
@@ -7,8 +8,8 @@ import {
 
 const router = Router();
 
-router.post("/notesheet", createNoteSheet);
-router.post("/note", createNote);
-router.post("/note/update", updateNote);
+router.post("/notesheet", authenticateJWT, createNoteSheet);
+router.post("/note", authenticateJWT, createNote);
+router.post("/note/update", authenticateJWT, updateNote);
 
 export default router;
