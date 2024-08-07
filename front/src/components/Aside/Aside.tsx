@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
 //styles
 import styled from "styled-components";
+
 //--components
 import { Icon } from "../assets/StyledAssets";
 
@@ -13,20 +14,106 @@ import {
   FiCheckCircle,
   FiCalendar,
   FiStar,
+  FiUser,
 } from "react-icons/fi";
-import { RiArrowDropRightFill } from "react-icons/ri";
-import { RiArrowDownSFill } from "react-icons/ri";
+import { RiArrowDropRightFill, RiArrowDownSFill } from "react-icons/ri";
 
-const AsideContainner = styled.div`
+type Props = {};
+
+const Aside = (props: Props) => {
+  const [accoutName, setAccountName] = useState<string>("Pedro Arthur");
+  const [hidden, setHidden] = useState<Boolean>(true);
+
+  return (
+    <AsideContainner hidden={hidden}>
+      <section className="headerAside" onClick={() => setHidden(!hidden)}>
+        <FiSidebar />
+      </section>
+
+      <p className="addTask">
+        <FiPlusCircle />
+        <span>Add task</span>
+      </p>
+
+      <section className="toolIcons">
+        <Tools hidden={hidden}>
+          <Icon>
+            <FiSearch />
+          </Icon>
+          <span>Search</span>
+        </Tools>
+        <Tools hidden={hidden}>
+          <Icon>
+            <FiCheckCircle />
+          </Icon>
+          <span>Today</span>
+        </Tools>
+        <Tools hidden={hidden}>
+          <Icon>
+            <FiCalendar />
+          </Icon>
+          <span>Calendar</span>
+        </Tools>
+      </section>
+
+      <BookMarks hidden={hidden}>
+        <p>
+          <Icon>
+            <FiStar />
+          </Icon>
+          <span>Favorites</span>
+        </p>
+
+        <div className="arrow">
+          <RiArrowDropRightFill size={20} />
+
+          {/* <RiArrowDownSFill size={20} /> */}
+        </div>
+      </BookMarks>
+
+      <BookMarks hidden={hidden}>
+        <AsidePerfil hidden={hidden}>
+          <Icon>
+            <FiUser />
+          </Icon>
+
+          <span>Account</span>
+        </AsidePerfil>
+
+        <div className="arrow">
+          <RiArrowDropRightFill size={20} />
+
+          {/* <RiArrowDownSFill size={20} /> */}
+        </div>
+      </BookMarks>
+
+      <AsidePerfilContainner hidden={hidden}>
+        <AsidePerfil hidden={hidden}>
+          <Icon>
+            <FiUser />
+          </Icon>
+
+          <span>{accoutName}</span>
+        </AsidePerfil>
+      </AsidePerfilContainner>
+    </AsideContainner>
+  );
+};
+
+export default Aside;
+
+const AsideContainner = styled.main<{ hidden: Boolean }>`
+  position: relative;
   display: flex;
   flex-direction: column;
 
-  min-width: 15%;
-  height: 100vh;
-  padding: var(--padding);
-  gap: 1rem;
+  min-width: ${({ hidden }) => (hidden ? "0px" : "15%")};
+  min-height: 95vh;
+  max-height: 100vh;
+  padding: ${({ hidden }) => (hidden ? "1rem .2rem" : "1rem")};
+  gap: ${({ hidden }) => (hidden ? "5rem" : "1rem")};
 
-  border-right: 0.2px solid var(--aside-border);
+  border-right: 0.2px inset var(--aside-border);
   background-color: var(--aside-background);
 
   .headerAside {
@@ -47,10 +134,10 @@ const AsideContainner = styled.div`
   .addTask {
     color: var(--icon-colored);
 
-    padding: 0.2rem 0 0.2rem 0.2rem;
+    padding: ${({ hidden }) => (hidden ? "0.2rem" : "0.2rem 0 0.2rem 0.2rem")}
     border-radius: 5px;
 
-    display: flex;
+    display: ${({ hidden }) => (hidden ? "none" : "flex")};
     align-items: center;
     text-align: center;
     justify-content: flex-start;
@@ -80,7 +167,7 @@ const AsideContainner = styled.div`
   }
 `;
 
-const Tools = styled.p`
+const Tools = styled.p<{ hidden: Boolean }>`
   min-width: 100%;
   color: var(--icon-color);
 
@@ -100,7 +187,7 @@ const Tools = styled.p`
   }
 
   span {
-    display: flex;
+    display: ${({ hidden }) => (hidden ? "none" : "flex")};
     align-items: center;
     text-align: center;
   }
@@ -115,9 +202,9 @@ const Tools = styled.p`
   }
 `;
 
-const BookMarks = styled.section`
+const BookMarks = styled.section<{ hidden: Boolean }>`
+  display: ${({ hidden }) => (hidden ? "none" : "flex")};
   color: var(--icon-color);
-  display: flex;
   align-items: center;
   justify-content: space-between;
   min-width: 100%;
@@ -126,10 +213,6 @@ const BookMarks = styled.section`
 
   &:hover {
     cursor: pointer;
-  }
-
-  .none {
-    display: none;
   }
 
   .favorites {
@@ -147,62 +230,55 @@ const BookMarks = styled.section`
     }
 
     span {
-      display: flex;
+      display: ${({ hidden }) => (hidden ? "none" : "flex")};
       align-items: center;
       text-align: center;
     }
   }
 `;
 
-type Props = {};
+const AsidePerfil = styled.div<{ hidden: Boolean }>`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 
-const Aside = (props: Props) => {
-  return (
-    <AsideContainner>
-      <section className="headerAside">
-        <FiSidebar />
-      </section>
+  gap: 5%;
 
-      <p className="addTask">
-        <FiPlusCircle />
-        <span>Add task</span>
-      </p>
+  i {
+    color: var(--icon-colored);
+    border-radius: 100px;
+  }
 
-      <section className="toolIcons">
-        <Tools>
-          <Icon>
-            <FiSearch />
-          </Icon>
-          <span>Search</span>
-        </Tools>
-        <Tools>
-          <Icon>
-            <FiCheckCircle />
-          </Icon>
-          <span>Today</span>
-        </Tools>
-        <Tools>
-          <Icon>
-            <FiCalendar />
-          </Icon>
-          <span>Calendar</span>
-        </Tools>
-      </section>
+  span {
+    display: ${({ hidden }) => (hidden ? "none" : "flex")};
+  }
+`;
 
-      <BookMarks>
-        <p>
-          <Icon>
-            <FiStar />
-          </Icon>
-          <span>Favorites</span>
-        </p>
+const AsidePerfilContainner = styled.section<{ hidden: Boolean }>`
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: 5px;
 
-        <RiArrowDropRightFill size={20} />
+  bottom: 3px;
 
-        {/* <RiArrowDownSFill size={20} /> */}
-      </BookMarks>
-    </AsideContainner>
-  );
-};
+  transition: var(--transition-duration) ease;
 
-export default Aside;
+  min-width: ${({ hidden }) => (hidden ? "20px" : "80%")};
+  padding: 0.2rem;
+
+  div,
+  span {
+    width: 100%;
+  }
+
+  &:hover {
+    background-color: var(--background-color);
+    cursor: pointer;
+  }
+
+  &:active {
+    background-color: transparent;
+  }
+`;

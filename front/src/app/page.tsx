@@ -7,7 +7,10 @@ import styled from "styled-components";
 import Aside from "../components/Aside/Aside";
 
 const Main = styled.main`
-  display: flex
+  display: flex;
+
+  min-height: 95vh;
+  max-height: 100vh;
 `
 
 export default function Home() {
