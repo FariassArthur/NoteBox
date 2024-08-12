@@ -9,6 +9,10 @@ import { Icon, Bar } from "../assets/StyledAssets";
 //icons
 import { FiMoreHorizontal } from "react-icons/fi";
 
+
+//components
+import Note from "./Note";
+
 type Props = {};
 
 const NoteSheet = (props: Props) => {
@@ -26,6 +30,10 @@ const NoteSheet = (props: Props) => {
         </Icon>
       </header>
       <Bar></Bar>
+
+      <section>
+        <Note />
+      </section>
     </Main>
   );
 };
@@ -40,6 +48,13 @@ const Main = styled.main`
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
+  }
+
+  section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
   }
 
   box-sizing: border-box;
