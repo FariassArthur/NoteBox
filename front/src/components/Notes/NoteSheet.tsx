@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 //styles
 import styled from "styled-components";
@@ -10,11 +10,18 @@ import { Icon, Bar } from "../_ui/styles/StyledAssets";
 import { FiMoreHorizontal } from "react-icons/fi";
 
 //components
-import Note from "./Note";
+import Note from "./components/Note";
+import NotePlus from "./components/NotePlus";
 
 type Props = {};
 
 const NoteSheet = (props: Props) => {
+  const [check, setCheck] = useState<boolean>(false);
+
+  const toggleCheck = () => {
+    setCheck((prevCheck) => !prevCheck);
+  };
+
   return (
     <Main>
       <header>
@@ -34,7 +41,10 @@ const NoteSheet = (props: Props) => {
         <Note
           title="Welcome to your board"
           content="Lorem ipsum dolor, sit amet consectetur adipisicing elit."
+          checked={check}
+          onToggleCheck={toggleCheck}
         />
+        <NotePlus />
       </section>
     </Main>
   );
@@ -57,11 +67,12 @@ const Main = styled.main`
     align-items: center;
     justify-content: center;
     flex-direction: column;
+
+    gap: 0.5rem;
   }
 
   box-sizing: border-box;
   padding: 1rem;
-  border: 1px solid;
 
   max-width: 25%;
 `;
