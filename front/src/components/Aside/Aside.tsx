@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 //--components
-import { Icon } from "../assets/StyledAssets";
+import { Icon } from "../_ui/styles/StyledAssets";
 
 //icons
 import {

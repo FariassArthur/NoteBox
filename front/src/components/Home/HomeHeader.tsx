@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 //styles
 import styled from "styled-components";
-import { Icon } from "../assets/StyledAssets";
+import { Icon } from "../_ui/styles/StyledAssets";
 
 //icons
 import { FiCalendar, FiGrid, FiTable } from "react-icons/fi";

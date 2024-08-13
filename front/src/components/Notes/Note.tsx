@@ -10,7 +10,7 @@ import { FiCheckCircle } from "react-icons/fi";
 type Props = {
   title: string;
   content: string;
-  createdAt: Date;
+  createdAt?: Date;
 };
 
 const Note = (props: Props) => {
@@ -21,8 +21,8 @@ const Note = (props: Props) => {
       <FiCircle size={20} />
       {/* <FiCheckCircle /> */}
       <Content>
-        <h3>Welcome to your board</h3>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+        <h3>{props.title}</h3>
+        <p>{props.content}</p>
       </Content>
     </NoteContainner>
   );

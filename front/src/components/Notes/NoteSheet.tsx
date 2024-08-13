@@ -4,11 +4,10 @@ import React from "react";
 import styled from "styled-components";
 
 //styled components
-import { Icon, Bar } from "../assets/StyledAssets";
+import { Icon, Bar } from "../_ui/styles/StyledAssets";
 
 //icons
 import { FiMoreHorizontal } from "react-icons/fi";
-
 
 //components
 import Note from "./Note";
@@ -32,7 +31,10 @@ const NoteSheet = (props: Props) => {
       <Bar></Bar>
 
       <section>
-        <Note />
+        <Note
+          title="Welcome to your board"
+          content="Lorem ipsum dolor, sit amet consectetur adipisicing elit."
+        />
       </section>
     </Main>
   );

@@ -4,7 +4,7 @@ import React from "react";
 import styled from "styled-components";
 
 //styled components
-import { Icon } from "../assets/StyledAssets";
+import { Icon } from "./styles/StyledAssets";
 
 //icons
 import { FiUser, FiBell, FiSettings } from "react-icons/fi";
