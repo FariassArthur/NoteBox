@@ -4,7 +4,7 @@ import React from "react";
 import styled from "styled-components";
 
 //components
-import NoteSheet from "../common/NoteSheet";
+import NoteSheet from "../Notes/NoteSheet";
 
 type Props = {};
 

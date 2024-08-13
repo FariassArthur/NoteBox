@@ -4,10 +4,10 @@
 import styled from "styled-components";
 
 //components
-import Aside from "../components/common/Aside";
-import Header from "../components/common/Header";
-import HomeMain from "../components/home/HomeMain";
-import HomeHeader from "../components/home/HomeHeader";
+import Aside from "../components/Aside/Aside";
+import Header from "../components/_ui/Header";
+import HomeMain from "../components/Home/HomeMain";
+import HomeHeader from "../components/Home/HomeHeader";
 
 const Home = () => {
   return (
