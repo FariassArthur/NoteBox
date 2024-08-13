@@ -4,9 +4,10 @@
 
   --transition-duration: 0.2s;
   --padding: 1rem;
+  --border: 8px;
 
   /* LIGHT */
-  --background-color: #EFEFEF;
+  --background-color: #efefef;
   --aside-background: rgba(0, 0, 0, 0.2);
   --aside-border: rgba(0, 0, 0, 0.5);
 
