@@ -13,9 +13,11 @@ import { FiMoreHorizontal } from "react-icons/fi";
 import Note from "./components/Note";
 import NotePlus from "./components/NotePlus";
 
-type Props = {};
+interface Props {
+  overflow: "x" | "y";
+}
 
-const NoteSheet = (props: Props) => {
+const NoteSheet = ({ overflow }: Props) => {
   const [check, setCheck] = useState<boolean>(false);
 
   const toggleCheck = () => {
@@ -53,8 +55,15 @@ const NoteSheet = (props: Props) => {
 export default NoteSheet;
 
 const Main = styled.main`
+  min-width: 25%;
+  width: 100%
+  border: 1px solid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   header {
-    max-width: 100%;
+    width: 100%;
 
     display: flex;
     align-items: center;
@@ -67,12 +76,11 @@ const Main = styled.main`
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    width: 100%;
 
     gap: 0.5rem;
   }
 
   box-sizing: border-box;
   padding: 1rem;
-
-  max-width: 25%;
 `;

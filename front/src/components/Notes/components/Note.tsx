@@ -43,9 +43,12 @@ const NoteContainer = styled.main<{
   align-items: center;
   justify-content: center;
   gap: 5%;
+  width: 100%;
   border: 0.2px outset var(--aside-border);
   padding: 0.5rem;
+
   cursor: pointer;
+  box-sizing: border-box;
 
   border-radius: var(--border);
 
