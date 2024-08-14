@@ -12,35 +12,48 @@ const HomeMain = (props: Props) => {
   const [overflow, setOverflow] = useState<"x" | "y">("x");
 
   return (
-    <Main $overflow={overflow}>
-      <NoteSheet overflow={overflow} />
-      <NoteSheet overflow={overflow} />
-      <NoteSheet overflow={overflow} />
-      <NoteSheet overflow={overflow} />
-      <NoteSheet overflow={overflow} />
-      <NoteSheet overflow={overflow} />
-      <NoteSheet overflow={overflow} />
+    <Main>
+      <ContentWrapper $overflow={overflow}>
+        <NoteSheet overflow={overflow} />
+        <NoteSheet overflow={overflow} />
+        <NoteSheet overflow={overflow} />
+        <NoteSheet overflow={overflow} />
+        <NoteSheet overflow={overflow} />
+        <NoteSheet overflow={overflow} />
+        <NoteSheet overflow={overflow} />
+      </ContentWrapper>
     </Main>
   );
 };
 
 export default HomeMain;
 
-const Main = styled.main<{ $overflow: string }>`
+const Main = styled.main`
+  box-sizing: border-box;
+  padding: 1rem;
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Impede que o conteúdo do Main ultrapasse seus limites */
+`;
+
+const ContentWrapper = styled.div<{ $overflow: string }>`
   ${({ $overflow }) =>
     $overflow === "x"
       ? `
-      overflow-x: scroll;
+      overflow: scroll;
       flex-direction: row;
     `
       : `
-      overflow-x: visible;
+      overflow: scroll;
       flex-direction: column;
     `}
 
-  box-sizing: border-box;
-  padding: 1rem;
-
   display: flex;
   gap: 1rem;
+  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
 `;
