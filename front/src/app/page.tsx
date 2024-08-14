@@ -37,6 +37,7 @@ const Main = styled.main`
   max-width: 100vw;
 
   border: 1px solid;
+  overflow: hidden;
 
   .mainContainner {
     width: 100%;
@@ -45,7 +46,7 @@ const Main = styled.main`
 
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
 
     position: relative;
     padding: 1rem;

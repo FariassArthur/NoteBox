@@ -25,21 +25,43 @@ const NoteSheet = ({ overflow }: Props) => {
   };
 
   return (
-    <Main>
+    <Main $overflow={overflow}>
       <header>
-        <section>
           <p>
             <span>Get Started</span>
           </p>
-        </section>
 
         <Icon>
           <FiMoreHorizontal />
         </Icon>
       </header>
-      <Bar></Bar>
+      <Bar />
 
       <section>
+        <Note
+          title="Welcome to your board"
+          content="Lorem ipsum dolor, sit amet consectetur adipisicing elit."
+          checked={check}
+          onToggleCheck={toggleCheck}
+        />
+        <Note
+          title="Welcome to your board"
+          content="Lorem ipsum dolor, sit amet consectetur adipisicing elit."
+          checked={check}
+          onToggleCheck={toggleCheck}
+        />
+        <Note
+          title="Welcome to your board"
+          content="Lorem ipsum dolor, sit amet consectetur adipisicing elit."
+          checked={check}
+          onToggleCheck={toggleCheck}
+        />
+        <Note
+          title="Welcome to your board"
+          content="Lorem ipsum dolor, sit amet consectetur adipisicing elit."
+          checked={check}
+          onToggleCheck={toggleCheck}
+        />
         <Note
           title="Welcome to your board"
           content="Lorem ipsum dolor, sit amet consectetur adipisicing elit."
@@ -54,21 +76,25 @@ const NoteSheet = ({ overflow }: Props) => {
 
 export default NoteSheet;
 
-const Main = styled.main`
+const Main = styled.main<{ $overflow: string }>`
   min-width: 25%;
-  width: 100%
-  border: 1px solid;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+
+  box-sizing: border-box;
+  padding: 1rem;
 
   header {
     width: 100%;
-
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
+    justify-content: space-between; // Ajuste para distribuir os elementos
+
+    p {
+      display: flex;
+      justify-content: center;
+    }
   }
 
   section {
@@ -77,10 +103,7 @@ const Main = styled.main`
     justify-content: center;
     flex-direction: column;
     width: 100%;
-
     gap: 0.5rem;
   }
-
-  box-sizing: border-box;
-  padding: 1rem;
 `;
+
