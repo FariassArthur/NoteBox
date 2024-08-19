@@ -27,7 +27,9 @@ const Aside = (props: Props) => {
   return (
     <AsideContainner hidden={hidden}>
       <section className="headerAside" onClick={() => setHidden(!hidden)}>
-        <FiSidebar />
+        <Icon>
+          <FiSidebar />
+        </Icon>
       </section>
 
       <p className="addTask">
@@ -107,7 +109,7 @@ const AsideContainner = styled.main<{ hidden: Boolean }>`
   display: flex;
   flex-direction: column;
 
-  min-width: ${({ hidden }) => (hidden ? "0px" : "15%")};
+  min-width: ${({ hidden }) => (hidden ? "max-content" : "15%")};
   min-height: 95vh;
   max-height: 100vh;
   padding: ${({ hidden }) => (hidden ? "1rem .2rem" : "1rem")};
@@ -134,7 +136,7 @@ const AsideContainner = styled.main<{ hidden: Boolean }>`
   .addTask {
     color: var(--icon-colored);
 
-    padding: ${({ hidden }) => (hidden ? "0.2rem" : "0.2rem 0 0.2rem 0.2rem")}
+    padding: ${({ hidden }) => (hidden ? "0.2rem" : "0.2rem 0 0.2rem 0.2rem")};
     border-radius: 5px;
 
     display: ${({ hidden }) => (hidden ? "none" : "flex")};
