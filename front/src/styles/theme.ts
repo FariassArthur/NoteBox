@@ -1,4 +1,14 @@
-export const lightTheme = {
+
+interface Theme {
+  colors: {
+    primary: string;
+    secondary: string;
+    background: string;
+    text: string;
+  };
+}
+
+export const lightTheme: Theme = {
   colors: {
     primary: '#0070f3',
     secondary: '#1db954',
@@ -7,7 +17,7 @@ export const lightTheme = {
   },
 };
 
-export const darkTheme = {
+export const darkTheme: Theme = {
   colors: {
     primary: '#0070f3',
     secondary: '#1db954',

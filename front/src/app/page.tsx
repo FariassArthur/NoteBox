@@ -1,7 +1,11 @@
 "use client";
+import { useState } from "react";
 
 //styles
 import styled from "styled-components";
+import GlobalStyle from "../styles/globalCSS";
+import ThemeProvider from "styled-components";
+import { darkTheme, lightTheme } from "../styles/theme";
 
 //components
 import Aside from "../components/Aside/Aside";
@@ -10,8 +14,13 @@ import HomeMain from "../components/Home/HomeMain";
 import HomeHeader from "../components/Home/HomeHeader";
 
 const Home = () => {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+  
+  
   return (
+
     <Main>
+      <GlobalStyle />
       <Aside />
       <section className="mainContainner">
         <Header />
@@ -19,6 +28,7 @@ const Home = () => {
         <HomeMain />
       </section>
     </Main>
+    
   );
 };
 
@@ -33,10 +43,6 @@ const Main = styled.main`
   min-height: 95vh;
   max-height: 100vh;
 
-  min-width: 95vw;
-  max-width: 100vw;
-
-  border: 1px solid;
   overflow: hidden;
 
   .mainContainner {
@@ -48,7 +54,7 @@ const Main = styled.main`
     flex-direction: column;
     gap: 1.5rem;
 
-    position: relative;
+    overflow: hidden;
     padding: 1rem;
   }
 `;
