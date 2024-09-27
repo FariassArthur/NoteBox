@@ -21,7 +21,7 @@ export const darkTheme: Theme = {
   colors: {
     primary: '#0070f3',
     secondary: '#1db954',
-    background: '#333',
+    background: '#333333',
     text: '#f0f0f0',
   },
 };

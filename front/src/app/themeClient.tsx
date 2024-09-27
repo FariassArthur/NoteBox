@@ -1,3 +1,4 @@
+"use client"
 import { useState } from "react";
 
 import { ThemeProvider } from "styled-components";
@@ -8,7 +9,7 @@ export default function ThemeClient({
 }: {
   children: React.ReactNode;
 }) {
-  const [isDarkTheme, setIsDarkMode] = useState(false);
+  const [isDarkTheme, setIsDarkMode] = useState<boolean>(true);
 
   return (
     <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
