@@ -13,9 +13,7 @@ import Header from "../components/_ui/Header";
 import HomeMain from "../components/Home/HomeMain";
 import HomeHeader from "../components/Home/HomeHeader";
 
-const Home = () => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
-  
+const Home = () => {  
   
   return (
 
@@ -35,7 +33,7 @@ const Home = () => {
 export default Home;
 
 const Main = styled.main`
-  background-color: var(--background-color);
+  background-color: ${({theme}) => theme.colors.background};
 
   display: flex;
   box-sizing: border-box;
