@@ -6,6 +6,9 @@ import styled from "styled-components";
 //--components
 import { Icon } from "../_ui/styles/StyledAssets";
 
+//func
+import { hexToRgba } from "@/src/extras/functions";
+
 //icons
 import {
   FiSidebar,
@@ -115,8 +118,8 @@ const AsideContainner = styled.main<{ hidden: Boolean }>`
   padding: ${({ hidden }) => (hidden ? "1rem .2rem" : "1rem")};
   gap: ${({ hidden }) => (hidden ? "5rem" : "1rem")};
 
-  border-right: 0.2px inset var(--aside-border);
-  background-color: var(--aside-background);
+  border-right: 0.2px inset ${({theme}) => theme.colors.border};
+  background-color: ${({ theme }) => hexToRgba(theme.colors.aside, 0.90)};
 
   .headerAside {
     display: flex;
@@ -148,7 +151,7 @@ const AsideContainner = styled.main<{ hidden: Boolean }>`
     transition: var(--transition-duration) ease-in-out;
 
     &:hover {
-      background-color: var(--background-color);
+      background-color: ${({theme}) => theme.colors.hover};
       cursor: pointer;
     }
 
@@ -284,3 +287,4 @@ const AsidePerfilContainner = styled.section<{ hidden: Boolean }>`
     background-color: transparent;
   }
 `;
+

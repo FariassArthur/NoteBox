@@ -34,6 +34,7 @@ export default Home;
 
 const Main = styled.main`
   background-color: ${({theme}) => theme.colors.background};
+  color: ${({theme}) => theme.colors.color};
 
   display: flex;
   box-sizing: border-box;
