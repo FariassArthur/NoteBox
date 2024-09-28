@@ -1,8 +1,8 @@
 import { createGlobalStyle } from "styled-components";
 
-
 const GlobalStyle = createGlobalStyle`
- :root { --max-width: 1100px;
+ :root {
+  --max-width: 1100px;
   --border-radius: 12px;
 
   --transition-duration: 0.2s;
@@ -25,6 +25,6 @@ const GlobalStyle = createGlobalStyle`
 }
 
 
-`
+`;
 
-export default GlobalStyle
+export default GlobalStyle;
