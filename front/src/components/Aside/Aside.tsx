@@ -12,6 +12,7 @@ import {
 
 //--components
 import { Icon } from "../_ui/styles/StyledAssets";
+import AsideList from "./components/AsideList";
 
 //icons
 import {
@@ -29,7 +30,12 @@ type Props = {};
 
 const Aside = (props: Props) => {
   const [accoutName, setAccountName] = useState<string>("Pedro Arthur");
-  const [hidden, setHidden] = useState<Boolean>(true);
+  const [hidden, setHidden] = useState<boolean>(true);
+  const [hiddenFavorites, setHiddenFavorites] = useState<boolean>(true);
+
+  const handleFavorites = () => {
+    setHiddenFavorites(!hiddenFavorites);
+  };
 
   return (
     <AsideContainner hidden={hidden}>
@@ -65,19 +71,29 @@ const Aside = (props: Props) => {
         </Tools>
       </section>
 
-      <BookMarks hidden={hidden}>
-        <p>
-          <Icon>
-            <FiStar />
-          </Icon>
-          <span>Favorites</span>
-        </p>
+      <BookMarks hidden={hidden} onClick={handleFavorites}>
+        <div className="containner">
+          <p>
+            <Icon>
+              <FiStar />
+            </Icon>
+            <span>Favorites</span>
+          </p>
 
-        <div className="arrow">
-          <RiArrowDropRightFill size={20} />
-
-          {/* <RiArrowDownSFill size={20} /> */}
+          <div className="arrow">
+            {hiddenFavorites ? (
+              <RiArrowDropRightFill size={20} />
+            ) : (
+              <RiArrowDownSFill size={20} />
+            )}
+          </div>
         </div>
+
+        {hiddenFavorites && (
+          <div className="favorites">
+            <AsideList />
+          </div>
+        )}
       </BookMarks>
 
       <BookMarks hidden={hidden}>

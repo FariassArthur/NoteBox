@@ -104,36 +104,47 @@ export const Tools = styled.p<{ hidden: Boolean }>`
 `;
 
 export const BookMarks = styled.section<{ hidden: Boolean }>`
-  display: ${({ hidden }) => (hidden ? "none" : "flex")};
-  color: var(--icon-color);
-  align-items: center;
-  justify-content: space-between;
-  min-width: 100%;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding: 0.2rem 0 0.2rem 0.2rem;
+  border: 1px solid;
 
-  &:hover {
-    cursor: pointer;
-  }
-
-  .favorites {
-    padding-left: 0.3rem;
-  }
-
-  p {
-    display: flex;
+  .containner {
+    display: ${({ hidden }) => (hidden ? "none" : "flex")};
+    color: var(--icon-color);
     align-items: center;
-    justify-content: flex-start;
-    gap: 5%;
+    justify-content: space-between;
+    min-width: 100%;
 
-    i {
-      color: var(--icon-colored);
+    border: 1px solid;
+
+    &:hover {
+      cursor: pointer;
     }
 
-    span {
-      display: ${({ hidden }) => (hidden ? "none" : "flex")};
+    .favorites {
+      padding-left: 0.3rem;
+    }
+
+    p {
+      display: flex;
       align-items: center;
-      text-align: center;
+      justify-content: flex-start;
+      gap: 5%;
+
+      i {
+        color: var(--icon-colored);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      span {
+        display: ${({ hidden }) => (hidden ? "none" : "flex")};
+        align-items: center;
+        text-align: center;
+      }
     }
   }
 `;
@@ -170,7 +181,7 @@ export const AsidePerfilContainner = styled.section<{ hidden: Boolean }>`
   transition: var(--transition-duration) ease-in-out;
 
   min-width: ${({ hidden }) => (hidden ? "20px" : "80%")};
-  padding: ${({hidden}) => (hidden ? "0" :".5rem")};
+  padding: ${({ hidden }) => (hidden ? "0" : ".5rem")};
 
   div,
   span {
